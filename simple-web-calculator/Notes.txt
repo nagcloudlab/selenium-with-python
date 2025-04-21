@@ -1,0 +1,9 @@
+
+
+UI = data + style + behavior
+What makes Web-UI ?
+
+    - HTML 
+    - CSS
+    - JS
+    - browser Api  ( e.g DOM, Fetch, WebSocket, WebRTC, etc )
