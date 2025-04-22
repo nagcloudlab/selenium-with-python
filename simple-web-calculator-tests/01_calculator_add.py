@@ -2,6 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 # service = Service(executable_path='/home/nag/drivers/chromedriver-linux64/chromedriver')
 
@@ -19,7 +22,7 @@ second_number = driver.find_element(By.ID, "input2")
 # Find the calculate button
 calculate_button = driver.find_element(By.ID, "calculate")
 # Find the result element
-result = driver.find_element(By.ID, "result")
+
 
 # Enter the first number
 first_number.send_keys("5")
@@ -31,6 +34,8 @@ time.sleep(2)
 calculate_button.click()
 time.sleep(2)
 # Get the result
+wait= WebDriverWait(driver, 1)
+result = wait.until(EC.presence_of_element_located((By.ID, "result")))
 result_value = result.text
 # Print the result
 print(f"Result of addition: {result_value}")

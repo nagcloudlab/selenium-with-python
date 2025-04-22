@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Selenium Advanced Concepts Demo</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    section { margin-bottom: 30px; }
+    .box { width: 100px; height: 100px; background: orange; margin: 10px; display: inline-block; }
+    iframe { width: 100%; height: 100px; }
+    #dragTarget { background: lightblue; }
+  </style>
+</head>
+<body>
+  <h1>🧪 Selenium Advanced Concepts Demo</h1>
+
+  <section>
+    <h2>Element States</h2>
+    <input type="text" id="visibleInput">
+    <input type="text" id="disabledInput" disabled>
+    <input type="checkbox" id="checkboxOption">
+  </section>
+
+  <section>
+    <h2>Browser Navigation</h2>
+    <a href="page2.html" id="navLink">Go to Page 2</a>
+  </section>
+
+  <section>
+    <h2>Windows & Tabs</h2>
+    <button onclick="openNewWindow()">Open New Window</button>
+  </section>
+
+  <section>
+    <h2>IFrame</h2>
+    <iframe srcdoc="<p id='frameText'>Inside iframe!</p>"></iframe>
+  </section>
+
+  <section>
+    <h2>Mouse Actions</h2>
+    <div class="box" id="hoverBox" onmouseover="hoverEffect()">Hover me</div>
+    <div class="box" id="dragSource" draggable="true" ondragstart="drag(event)">Drag</div>
+    <div class="box" id="dragTarget" ondrop="drop(event)" ondragover="allowDrop(event)">Drop here</div>
+    <p id="hoverText"></p>
+  </section>
+
+  <section>
+    <h2>Form Validation</h2>
+    <form id="sampleForm">
+      <input type="text" id="requiredField" required placeholder="Required field">
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Dynamic Message (Wait Demo)</h2>
+    <button onclick="showDelayed()">Load Message</button>
+    <div id="waitTarget" style="display:none;">🎯 Element loaded!</div>
+  </section>
+
+  <script>
+    function openNewWindow() {
+      window.open("page2.html", "_blank");
+    }
+
+    function hoverEffect() {
+      document.getElementById("hoverText").textContent = "Hovered!";
+    }
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      const data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+      ev.target.textContent = "Dropped!";
+    }
+
+    function showDelayed() {
+      setTimeout(() => {
+        document.getElementById("waitTarget").style.display = "block";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

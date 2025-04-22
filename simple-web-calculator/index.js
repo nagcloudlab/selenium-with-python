@@ -7,7 +7,7 @@ const input1Ele=document.getElementById("input1");
 const input2Ele=document.getElementById("input2");
 const operationEle=document.getElementById("operation");
 const calculateBtnEle=document.getElementById("calculate");
-const resultEle=document.getElementById("result");
+const resultEle=document.getElementById("result-box");
 
 
 calculateBtnEle.addEventListener("click",function(){
@@ -21,13 +21,16 @@ calculateBtnEle.addEventListener("click",function(){
         result=parseInt(input1)+parseInt(input2);
     }else if(operation=="-"){
         result=parseInt(input1)-parseInt(input2);
-    }else if(operation=="+"){
+    }else if(operation=="*"){
         result=parseInt(input1)*parseInt(input2);
     }else if(operation=="/"){
         result=parseInt(input1)/parseInt(input2);
     }else{
         result="Invalid Operation";
     }
-
-    resultEle.innerText=result;
+    setTimeout(() => {
+        resultEle.innerHTML=`
+        <span id="result">${result}</span>
+    `;
+    }, 0);
 });
