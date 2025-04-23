@@ -17,9 +17,12 @@ pytest test_version.py
 pytest test_print.py
 ```
 
-capfd—Like capsys, but captures file descriptors 1 and 2, which usually is the same as stdout and stderr
-capsysbinary—Where capsys captures text, capsysbinary captures bytes.
-capfdbinary—Captures bytes on file descriptors 1 and 2
+capfd
+—Like capsys, but captures file descriptors 1 and 2, which usually is the same as stdout and stderr
+capsysbinary
+—Where capsys captures text, capsysbinary captures bytes.
+capfdbinary
+—Captures bytes on file descriptors 1 and 2
 caplog—Captures output written with the logging package
 
 

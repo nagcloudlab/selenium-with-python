@@ -1,9 +1,7 @@
 import pytest
 from cards import Card
 
-summaries = ["short", "a bit longer"]
-owners = ["First", "First M. Last"]
-states = ["todo", "in prog", "done"]
+
 
 
 @pytest.mark.parametrize(
@@ -22,6 +20,12 @@ def test_add_lots(cards_db, summary, owner, state):
     expected = Card(summary, owner=owner, state=state)
     assert card == expected
 
+
+
+
+summaries = ["short", "a bit longer"]
+owners = ["First", "First M. Last"]
+states = ["todo", "in prog", "done"]
 
 @pytest.mark.parametrize("state", states)
 @pytest.mark.parametrize("owner", owners)

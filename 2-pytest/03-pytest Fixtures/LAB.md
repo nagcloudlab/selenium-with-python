@@ -84,8 +84,6 @@ pytest --setup-show --func-db -v test_count.py
 ```
 
 
-
-
 Using autouse for Fixtures That Always Get Used
 ===============================================
 

@@ -51,6 +51,5 @@ pytest -v
 pytest -v -k todo
 pytest -v -k "todo and not (play or create)"
 pytest -v "test_func_param.py::test_finish"
-pytest -v "test_func_param.py::test_finish[a-b]"
 ```
 

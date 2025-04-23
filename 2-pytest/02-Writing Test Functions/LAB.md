@@ -7,7 +7,7 @@ install cards_proj package
 
 ```bash
 cd code
-pip install ../00-cards_proj/
+pip install ./00-cards_proj/
 
 cards
 cards add do something --owner Nag

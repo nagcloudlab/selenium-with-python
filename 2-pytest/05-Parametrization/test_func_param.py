@@ -30,3 +30,7 @@ def test_finish_simple(cards_db, start_state):
     assert card.state == "done"
 
 
+@pytest.mark.parametrize("food1, food2", [("apple", "banana"), ("carrot", "potato")])
+def test_eat(food1, food2):
+    assert True
+

@@ -3,8 +3,6 @@ import getpass
 
 import pytest
 
-
-
 class AuthenticationError(RuntimeError):
     pass
 
@@ -33,3 +31,28 @@ def test_login_failure(monkeypatch):
         user_login("joe")
 
 # --------------------------------------------------
+
+
+def get_os_user():
+    import os
+    return os.getenv("USER")
+
+def test_get_od_user(monkeypatch):
+    monkeypatch.setenv("USER", "testuser")
+    assert get_os_user() == "testuser"
+
+
+# --------------------------------------------------
+# Replace the function with a mock
+#----------------------------------------------------
+
+
+# def send_email():
+#     return "Email sent"
+
+# def fake_send_email():
+#     return "Fake email sent"
+
+# def test_send_email(monkeypatch):
+#     monkeypatch.setattr(__name__, "send_email", fake_send_email)
+#     assert send_email() == "Fake email sent"
