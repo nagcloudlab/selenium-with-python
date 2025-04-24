@@ -1,0 +1,18 @@
+
+
+
+/transfer
+
+POST /transfer
+{
+  "fromAccountNumber": "123456789",
+  "toAccountNumber": "987654321",
+  "amount": 100.00
+}
+
+// Response
+{
+  "status": "success",
+  "transactionId": "abc123",
+  "message": "Transfer completed successfully."
+}
