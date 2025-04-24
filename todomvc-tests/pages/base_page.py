@@ -3,6 +3,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 
 class BasePage:
     def __init__(self, driver):
@@ -13,6 +14,7 @@ class BasePage:
 
     def type(self, by, locator, text):
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((by, locator))).send_keys(text)
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((by, locator))).send_keys(Keys.RETURN)
 
     def get_elements(self, by, locator):
         return self.driver.find_elements(by, locator)

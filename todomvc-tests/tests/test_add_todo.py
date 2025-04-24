@@ -3,6 +3,7 @@
 import pytest
 from pages.todo_page import TodoPage
 from utils.json_loader import load_test_data
+import time
 
 @pytest.mark.parametrize("item", load_test_data("todos.json"))
 def test_add_todo_item(browser, item):
